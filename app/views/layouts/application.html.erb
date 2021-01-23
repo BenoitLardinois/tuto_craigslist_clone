@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>CraigslistClone</title>
+    <title>Craigslist Clone</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -11,16 +11,36 @@
   </head>
 
   <body>
+    <div class="header">
+      <%= render "layouts/breadcrumb_nav" %>
+    </div>
+    <p class="notice"><%= notice %></p>
     <div class="main">
       <div class="main-left">
         <p><strong><%= link_to "Craigslist Clone", root_path %></strong></p>
+
+        <p><%= link_to "Create new post", new_post_path %></p>
+
+        <p><%= link_to "My Account", new_account_session_path unless account_signed_in? %></p>
+
         <%= render "categories/category_sidebar" if controller.controller_name == "categories" %>
-        <%= link_to "Create new post", new_post_path if controller.controller_name == "public" %>
+
+        <% if is_home? %>
+          <div class="nav-pages">
+            <p><%= link_to "help, faqs, abuse, legal", faqs_path %></p>
+
+            <p><%= link_to "avoid scans and fraud", scans_path %></p>
+
+            <p><%= link_to "personal safety tips", safety_path %></p>
+
+            <p><%= link_to "terms of use", terms_path %></p>
+          </div>
+        <% end %>
+
       </div>
       <div class="main-right">
         <%= yield %>
       </div>
     </div>
-
   </body>
 </html>
