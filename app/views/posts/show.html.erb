@@ -1,0 +1,7 @@
+<h1><%= @post.title %></h1>
+<%= simple_format @post.content %>
+
+<p>
+	<span class="posted-id">Post id: <%= @post.id.to_s %></span>
+	<span class="posted-at">Posted <%= time_ago_in_words @post.created_at %> ago</span>
+</p>
