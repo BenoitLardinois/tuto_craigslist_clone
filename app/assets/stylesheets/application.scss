@@ -11,6 +11,8 @@
  * It is generally better to create a new file per style scope.
  *
  *= require categories
+ *= require posts
+ *= require public
  *= require_self
  */
 
@@ -24,4 +26,9 @@
 
 #new_account .form-group br, #new_session .form-group br {
  		display: none;
+ }
+
+ .logotype {
+ 	font-family: 'Yusei Magic', sans-serif;
+ 	font-size: 18px;
  }

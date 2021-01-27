@@ -11,17 +11,16 @@
     
     <link rel="preconnect" href="https://fonts.gstatic.com"> 
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP&display=swap" rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com"> 
+    <link href="https://fonts.googleapis.com/css2?family=Yusei+Magic&display=swap" rel="stylesheet">
   </head>
 
   <body>
-    <header class="header">
-      <%= render "layouts/breadcrumb_nav" %>
-    </header>
-
     <div class=" container">
       <div class="row">
         <div class="col-3">
-          <p><strong><%= link_to "Craigslist Clone", root_path, class: "text-dark" %></strong></p>
+          <p class="logotype mt-4 mb-5"><strong><%= link_to "Craigslist Clone", root_path, class: " text-dark" %></strong></p>
 
           <p><%= link_to "Create new post", new_post_path, class: "btn btn-success" unless is_auth? %></p>
 
@@ -41,10 +40,14 @@
 
         </div>
         <div class="col-9">
+          <header id="header">
+            <%= render "layouts/breadcrumb_nav" %>
+          </header>
           <%= yield %>
         </div>
       </div>
     <div id="notice"><%= notice %></div>
     </div>
+  <%= flash_notifications %>
   </body>
 </html>

@@ -14,5 +14,15 @@ require("jquery")
 require("bootstrap") 
 require("popper.js")
 
+import toastr from 'toastr':
+toastr.options : {
+	progressBar: true,
+}
+global.toastr = toastr;
+
+import './src/toastr.scss'
+
+import './src/posts.js'
+
 Rails.start()
 ActiveStorage.start()
